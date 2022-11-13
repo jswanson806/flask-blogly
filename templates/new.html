@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} User Details {% endblock %}
+{% block content %}
+<form action="/users" method="POST">
+    First Name<br><input type="text" name="first-name" placeholder="first name"><br>
+    Last Name<br><input type="text" name="last-name" placeholder="last name"><br>
+    Image URL<br><input type="text" name="profile-img" placeholder="Provide an image of this user"><br>
+    <button>Add</button>
+</form>
+{% endblock %}
