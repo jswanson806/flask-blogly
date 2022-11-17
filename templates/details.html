@@ -2,16 +2,31 @@
 {% block title %} User Details {% endblock %}
 {% block content %}
 
+<!-- user information and img -->
 <h1>{{user.first_name}} {{user.last_name}}</h1>
-
 <img src="{{user.profile_img}}" alt="user profile picture"/><br>
 
+<!-- edit user button -->
 <form action="/users/{{user.id}}/edit">
     <button>Edit</button>
-</form>
-
+</form><br>
+<!-- delete user button -->
 <form action="/users/{{user.id}}/delete" methods="POST">
     <button>Delete</button>
+</form><br>
+<!-- user posts section -->
+<h3>Posts</h3>
+<ul>
+    <!-- logic to list posts goes here -->
+    
+    {% for post in posts %}
+        <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+    {% endfor %}
+    
+</ul>
+
+<form action="/users/{{user.id}}/posts/new">
+    <button>Add Post</button>
 </form>
 
 {% endblock %}
