@@ -6,8 +6,13 @@
 <h1>{{post.title}}</h1>
 
 <!-- post content -->
-<p>{{post.content}}</p>
-
+<p>{{post.content}}</p><br>
+<h4>Tags:</h4>
+<ul>
+{% for tag in post.tags %}
+    <li>{{tag.name}}</li>
+{% endfor %}
+</ul>
 <!-- edit post button -->
 <form action='/posts/{{post.id}}/edit'>
     <button>Edit</button>
@@ -16,4 +21,9 @@
 <form action='/posts/{{post.id}}/delete' methods="POST">
     <button>Delete</button>
 </form><br>
+
+<form action="/users/{{post.user_id}}">
+    <input type="submit" value="Cancel"/>
+</form>
+
 {% endblock %}

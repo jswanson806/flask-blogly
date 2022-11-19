@@ -5,8 +5,13 @@
 <form action="/users/{{user.id}}/posts/new" method="POST">
     Title<br><input type="text" name="post-title" placeholder="Enter Title"><br>
     Content<br><input type="text" name="post-content" placeholder="What do you want to post?"><br>
+    
+    {% for tag in tags %}
+    <input type="checkbox" name="tag-name" value="{{tag.name}}">{{tag.name}}<br>
+    {% endfor %}
     <button>Add</button>
 </form>
+<form action=""></form>
 <form action="/users/{{user.id}}">
     <input type="submit" value="Cancel"/>
 </form>
